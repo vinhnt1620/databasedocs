@@ -1,0 +1,19 @@
+{
+    "name": "vinhnt/databasedocs",
+    "autoload": {
+        "psr-4": {
+            "Vinhnt\\Databasedocs\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "NTVinh1620",
+            "email": "rukitori1620@gmail.com"
+        }
+    ],
+    "require": {
+        "doctrine/dbal": "^3.6",
+        "maatwebsite/excel": "^3.1",
+        "beyondcode/laravel-er-diagram-generator": "^2.0"
+    }
+}
