@@ -79,14 +79,15 @@ class TablesExport implements WithMultipleSheets
                 $default = $column->getDefault();
                 $length = $column->getLength();
                 $description = $column->getComment();
-                $primaryKey = $table->getPrimaryKey()->getColumns()[0] === $name;
+                $primaryKey = $table->getPrimaryKey() ? $table->getPrimaryKey()->getColumns()[0] === 'id' : false;
                 $uniqueKey = false;
                 $foreignKey = false;
             
                 // Check if this column is a unique key
                 foreach ($table->getIndexes() as $index) {
                     if ($index->getColumns()[0] === $name) {
-                        $uniqueKey = $index->isUnique(); 
+                        $uniqueKey = $index->isUnique();
+                        break;
                     }
                 }
 
