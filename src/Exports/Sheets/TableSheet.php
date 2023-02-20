@@ -98,19 +98,19 @@ class TableSheet implements FromCollection, ShouldAutoSize, WithMapping, WithTit
             ->getStartColor()
             ->setARGB('92d050');
 
-        $sheet->getStyle('A1:L25')->getFont()->setName('Arial');
-        $sheet->getStyle('A1:L25')->getAlignment()->setIndent(1);
+        $sheet->getStyle('A1:L100')->getFont()->setName('Arial');
+        $sheet->getStyle('A1:L100')->getAlignment()->setIndent(1);
         $sheet->getStyle('B2:L3')->getFont()->setBold(true);
 
         $sheet->getStyle('B3:L3')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
-        $sheet->getStyle('B3:B25')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
-        $sheet->getStyle('D3:H25')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
-        $sheet->getStyle('I3:I25')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
-        $sheet->getStyle('J3:J25')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
-        $sheet->getStyle('K3:K25')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+        $sheet->getStyle('B3:B100')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+        $sheet->getStyle('D3:H100')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+        $sheet->getStyle('I3:I100')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+        $sheet->getStyle('J3:J100')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+        $sheet->getStyle('K3:K100')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
         
-        for ($i = 1; $i <= 25; $i++) {
-            $sheet->getRowDimension($i)->setRowHeight(25);
+        for ($i = 1; $i <= 100; $i++) {
+            $sheet->getRowDimension($i)->setRowHeight(100);
         }
 
         $sheet->getStyle('B3:L3')
@@ -128,6 +128,6 @@ class TableSheet implements FromCollection, ShouldAutoSize, WithMapping, WithTit
             ],
         ];
 
-        $sheet->getStyle('B2:L25')->applyFromArray($styleArray)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+        $sheet->getStyle('B2:L100')->applyFromArray($styleArray)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
     }
 }

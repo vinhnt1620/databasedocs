@@ -29,7 +29,7 @@ You need to add the following to `config\app.php`:
 \\ Register Service Providers
 Vinhnt\Databasedocs\Providers\DatabaseDocsServiceProvider::class,
 ```
-## Usage
+<!-- ## Usage
 
 Run command 
 ```bash
@@ -39,4 +39,4 @@ Excel file will be stored in `storage\app`
 
 ## Reference
 
-https://oceanic-cut-66f.notion.site/Docs-Database-630f485e846a4e119382981064948067
+https://oceanic-cut-66f.notion.site/Docs-Database-630f485e846a4e119382981064948067 -->

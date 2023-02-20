@@ -88,15 +88,15 @@ class UpdateHistorySheet implements WithTitle, ShouldAutoSize, WithStyles, WithM
             ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
         $sheet->getStyle('A1')->getFont()->setSize(15);
 
-        $sheet->getStyle('A1:H25')->getFont()->setName('Arial');
-        $sheet->getStyle('A1:H25')->getAlignment()->setIndent(1);
+        $sheet->getStyle('A1:H100')->getFont()->setName('Arial');
+        $sheet->getStyle('A1:H100')->getAlignment()->setIndent(1);
         $sheet->getStyle('A1:H4')->getFont()->setBold(true);
 
         $sheet->getStyle('A4:H4')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
-        $sheet->getStyle('A4:G25')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+        $sheet->getStyle('A4:G100')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
         
-        for ($i = 1; $i <= 25; $i++) {
-            $sheet->getRowDimension($i)->setRowHeight(25);
+        for ($i = 1; $i <= 100; $i++) {
+            $sheet->getRowDimension($i)->setRowHeight(100);
         }
 
         $sheet->getStyle('A4:H4')
@@ -114,6 +114,6 @@ class UpdateHistorySheet implements WithTitle, ShouldAutoSize, WithStyles, WithM
             ],
         ];
 
-        $sheet->getStyle('A1:H25')->applyFromArray($styleArray)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+        $sheet->getStyle('A1:H100')->applyFromArray($styleArray)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
     }
 }

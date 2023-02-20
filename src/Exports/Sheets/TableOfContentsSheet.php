@@ -106,15 +106,15 @@ class TableOfContentsSheet implements WithTitle, ShouldAutoSize, WithStyles, Wit
             ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
         $sheet->getStyle('A1')->getFont()->setSize(15);
 
-        $sheet->getStyle('A1:D25')->getFont()->setName('Arial');
-        $sheet->getStyle('A1:D25')->getAlignment()->setIndent(1);
+        $sheet->getStyle('A1:D100')->getFont()->setName('Arial');
+        $sheet->getStyle('A1:D100')->getAlignment()->setIndent(1);
         $sheet->getStyle('A1:D4')->getFont()->setBold(true);
 
         $sheet->getStyle('A4:D4')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
-        $sheet->getStyle('A4:A25')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+        $sheet->getStyle('A4:A100')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
         
-        for ($i = 1; $i <= 25; $i++) {
-            $sheet->getRowDimension($i)->setRowHeight(25);
+        for ($i = 1; $i <= 100; $i++) {
+            $sheet->getRowDimension($i)->setRowHeight(100);
         }
 
         $sheet->getStyle('A4:D4')
@@ -132,6 +132,6 @@ class TableOfContentsSheet implements WithTitle, ShouldAutoSize, WithStyles, Wit
             ],
         ];
 
-        $sheet->getStyle('A1:D25')->applyFromArray($styleArray)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+        $sheet->getStyle('A1:D100')->applyFromArray($styleArray)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
     }
 }
