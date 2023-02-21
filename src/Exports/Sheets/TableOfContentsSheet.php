@@ -114,7 +114,7 @@ class TableOfContentsSheet implements WithTitle, ShouldAutoSize, WithStyles, Wit
         $sheet->getStyle('A4:A100')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
         
         for ($i = 1; $i <= 100; $i++) {
-            $sheet->getRowDimension($i)->setRowHeight(100);
+            $sheet->getRowDimension($i)->setRowHeight(25);
         }
 
         $sheet->getStyle('A4:D4')

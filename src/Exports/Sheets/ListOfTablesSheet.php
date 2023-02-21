@@ -76,15 +76,15 @@ class ListOfTablesSheet implements WithTitle, ShouldAutoSize, WithMapping, FromC
             ->getStartColor()
             ->setARGB('92d050');
 
-        $sheet->getStyle('A1:E25')->getFont()->setName('Arial');
-        $sheet->getStyle('A1:E25')->getAlignment()->setIndent(1);
+        $sheet->getStyle('A1:E100')->getFont()->setName('Arial');
+        $sheet->getStyle('A1:E100')->getAlignment()->setIndent(1);
         $sheet->getStyle('B2:E2')->getFont()->setBold(true);
 
         $sheet->getStyle('B2:E2')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
-        $sheet->getStyle('B2:B25')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
-        $sheet->getStyle('D3:D25')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT);
+        $sheet->getStyle('B2:B100')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+        $sheet->getStyle('D3:D100')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT);
         
-        for ($i = 1; $i <= 25; $i++) {
+        for ($i = 1; $i <= 100; $i++) {
             $sheet->getRowDimension($i)->setRowHeight(25);
         }
 
@@ -97,6 +97,6 @@ class ListOfTablesSheet implements WithTitle, ShouldAutoSize, WithMapping, FromC
             ],
         ];
 
-        $sheet->getStyle('B2:E25')->applyFromArray($styleArray)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+        $sheet->getStyle('B2:E100')->applyFromArray($styleArray)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
     }
 }

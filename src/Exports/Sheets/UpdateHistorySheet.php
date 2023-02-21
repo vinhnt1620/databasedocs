@@ -96,7 +96,7 @@ class UpdateHistorySheet implements WithTitle, ShouldAutoSize, WithStyles, WithM
         $sheet->getStyle('A4:G100')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
         
         for ($i = 1; $i <= 100; $i++) {
-            $sheet->getRowDimension($i)->setRowHeight(100);
+            $sheet->getRowDimension($i)->setRowHeight(25);
         }
 
         $sheet->getStyle('A4:H4')
