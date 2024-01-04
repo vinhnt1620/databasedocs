@@ -92,7 +92,7 @@ class TablesExport implements WithMultipleSheets
                     $default = $column->getDefault();
                     $length = $column->getLength();
                     $description = $column->getComment();
-                    $primaryKey = $table->getPrimaryKey() ? $table->getPrimaryKey()->getColumns()[0] === 'id' : false;
+                    $primaryKey = $table->getPrimaryKey() ? in_array($column->getName(), $table->getPrimaryKey()->getColumns()) : false;
                     $uniqueKey = false;
                     $foreignKey = false;
                 
