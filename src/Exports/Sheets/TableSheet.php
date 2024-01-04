@@ -6,10 +6,13 @@ use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithTitle;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Concerns\WithStyles;
+use Maatwebsite\Excel\Events\AfterSheet;
+use PhpOffice\PhpSpreadsheet\Style\Font;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class TableSheet implements FromCollection, ShouldAutoSize, WithMapping, WithTitle, WithStyles
+class TableSheet implements FromCollection, ShouldAutoSize, WithMapping, WithTitle, WithStyles, WithEvents
 {
     private $table_name;
     private $fields;
@@ -39,7 +42,9 @@ class TableSheet implements FromCollection, ShouldAutoSize, WithMapping, WithTit
     public function map($field): array
     {
         $rows = [
-            [],
+            [
+                '<<'
+            ],
             [
                 '',
                 strtoupper($this->table_name),
@@ -129,5 +134,32 @@ class TableSheet implements FromCollection, ShouldAutoSize, WithMapping, WithTit
         ];
 
         $sheet->getStyle('B2:L100')->applyFromArray($styleArray)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+        $sheet->getCell('A1')->getHyperlink()->setUrl("sheet://'List Of Tables'!A1");
+        $sheet->getCell('A1')->getStyle()->getFont()->setUnderline(Font::UNDERLINE_SINGLE);
+    }
+
+    public function registerEvents(): array
+    {
+        return [
+            AfterSheet::class => function (AfterSheet $event) {
+                foreach ($this->fields as $key => $field) {
+                    for ($col_index = 4; $col_index <= 8; $col_index++) {
+                        $cell_value = $event->sheet->getCellByColumnAndRow($col_index, $key + 4)
+                            ->getValue();
+
+                        if ($cell_value == "v") {
+                            $event->sheet->getCellByColumnAndRow($col_index, $key + 4)
+                                ->getStyle()
+                                ->getFill()
+                                ->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
+                                ->getStartColor()
+                                ->setARGB('ff0000');
+
+                            $event->sheet->setCellValueByColumnAndRow($col_index, $key + 4, "");
+                        }
+                    }
+                }
+            },
+        ];
     }
 }

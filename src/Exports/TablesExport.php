@@ -31,9 +31,9 @@ class TablesExport implements WithMultipleSheets
         $sheets = [];
 
         $sheets[] = new CoverSheet();
-        $sheets[] = new UpdateHistorySheet();
-        $sheets[] = new TableOfContentsSheet();
         $sheets[] = new ERDSheet();
+        $sheets[] = new UpdateHistorySheet();
+        // $sheets[] = new TableOfContentsSheet();
 
         $except = $this->tables;
 
